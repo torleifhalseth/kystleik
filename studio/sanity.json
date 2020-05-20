@@ -1,0 +1,24 @@
+{
+  "root": true,
+  "api": {
+    "projectId": "qc3nk3mq",
+    "dataset": "production"
+  },
+  "project": {
+    "name": "Kystleik",
+    "basePath": "/"
+  },
+  "plugins": [
+    "@sanity/base",
+    "@sanity/components",
+    "@sanity/default-layout",
+    "@sanity/default-login",
+    "@sanity/desk-tool"
+  ],
+  "parts": [
+    {
+      "name": "part:@sanity/base/schema",
+      "path": "./schemas/schemas.js"
+    }
+  ]
+}
