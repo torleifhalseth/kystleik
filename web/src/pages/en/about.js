@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-pascal-case */
 import React from 'react'
 import { graphql } from 'gatsby'
 import BlockContent from '../../components/block-content'
@@ -6,15 +7,17 @@ import GraphQLErrorList from '../../components/graphql-error-list'
 import PeopleGrid from '../../components/people-grid'
 import SEO from '../../components/seo'
 import Layout from '../../containers/layout'
-import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from '../../lib/helpers'
+import { mapEdgesToNodes } from '../../lib/helpers'
 
 import { responsiveTitle1 } from '../../components/typography.module.css'
 
 export const query = graphql`
   query AboutPageQuery {
-    page: sanityPage(_id: { regex: "/(drafts.|)77e97d2b-a7c7-4e9b-a0df-5780db3483d4/" }) {
+    page: sanityPage(_id: { regex: "/(drafts.|)8905a278-2e78-4503-b049-544c03d539c8/" }) {
       id
-      title
+      title {
+        en
+      }
       _rawBody
     }
     people: allSanityPerson {
@@ -46,8 +49,7 @@ const AboutPage = props => {
   }
 
   const page = data && data.page
-  const personNodes =
-    data && data.people && mapEdgesToNodes(data.people).filter(filterOutDocsWithoutSlugs)
+  const personNodes = data && data.people && mapEdgesToNodes(data.people)
 
   if (!page) {
     throw new Error(
@@ -57,11 +59,11 @@ const AboutPage = props => {
 
   return (
     <Layout>
-      <SEO title={page.title} />
+      <SEO title={page.title.en} />
       <Container>
-        <h1 className={responsiveTitle1}>{page.title}</h1>
-        <BlockContent blocks={page._rawBody || []} />
-        {personNodes && personNodes.length > 0 && <PeopleGrid items={personNodes} title="People" />}
+        <h1 className={responsiveTitle1}>{page.title.en}</h1>
+        <BlockContent blocks={page._rawBody.en || []} />
+        {personNodes && personNodes.length > 0 && <PeopleGrid items={personNodes} title='People' />}
       </Container>
     </Layout>
   )

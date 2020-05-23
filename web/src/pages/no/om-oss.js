@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-pascal-case */
 import React from 'react'
 import { graphql } from 'gatsby'
 import BlockContent from '../../components/block-content'
@@ -14,7 +15,9 @@ export const query = graphql`
   query OmOssPageQuery {
     page: sanityPage(_id: { regex: "/(drafts.|)8905a278-2e78-4503-b049-544c03d539c8/" }) {
       id
-      title
+      title {
+        nb
+      }
       _rawBody
     }
     people: allSanityPerson {
@@ -46,8 +49,7 @@ const AboutPage = props => {
   }
 
   const page = data && data.page
-  const personNodes =
-    data && data.people && mapEdgesToNodes(data.people).filter(filterOutDocsWithoutSlugs)
+  const personNodes = data && data.people && mapEdgesToNodes(data.people)
 
   if (!page) {
     throw new Error(
@@ -57,11 +59,11 @@ const AboutPage = props => {
 
   return (
     <Layout>
-      <SEO title={page.title} />
+      <SEO title={page.title.nb} />
       <Container>
-        <h1 className={responsiveTitle1}>{page.title}</h1>
-        <BlockContent blocks={page._rawBody || []} />
-        {personNodes && personNodes.length > 0 && <PeopleGrid items={personNodes} title="People" />}
+        <h1 className={responsiveTitle1}>{page.title.nb}</h1>
+        <BlockContent blocks={page._rawBody.nb || []} />
+        {personNodes && personNodes.length > 0 && <PeopleGrid items={personNodes} title='People' />}
       </Container>
     </Layout>
   )

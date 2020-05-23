@@ -2,16 +2,22 @@ export default {
   name: 'tour',
   title: 'Tour',
   type: 'document',
+  preview: {
+    select: {
+      title: 'title.nb',
+      subtitle: 'releaseDate'
+    }
+  },
   fields: [
     {
       name: 'title',
       title: 'Title',
-      type: 'string'
+      type: 'localeString'
     },
     {
       name: 'slug',
       title: 'Slug',
-      type: 'slug',
+      type: 'localeSlug',
       description:
         'Some frontend will require a slug to be set to be able to show the project',
       options: {
@@ -26,8 +32,8 @@ export default {
     },
     {
       name: 'body',
-      title: 'Body',
-      type: 'blockContent'
+      title: 'Content',
+      type: 'localeBlockContent'
     }
   ]
-};
+}

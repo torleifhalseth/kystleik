@@ -33,7 +33,7 @@ function ProfileCard ({ image, name, _rawBio }) {
 function PeopleGrid ({ items, title }) {
   return (
     <div className={styles.root}>
-      {<h2 className={responsiveTitle2}>{title}</h2>}
+      <h2 className={responsiveTitle2}>{title}</h2>
       <ul className={styles.grid}>
         {items.map(item => (
           <li key={item.id}>

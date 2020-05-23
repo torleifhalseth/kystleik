@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-pascal-case */
 import React from 'react'
 import { graphql } from 'gatsby'
 import Container from '../components/container'
@@ -29,11 +30,22 @@ export const query = graphql`
         asset {
           _id
         }
-        alt
+        alt {
+          en
+          nb
+        }
       }
-      title
+      title {
+        nb
+        en
+      }
       slug {
-        current
+        en {
+          current
+        }
+        nb {
+          current
+        }
       }
     }
   }
@@ -44,15 +56,15 @@ const TourTemplate = props => {
   const tour = data && data.tour
   return (
     <Layout>
-      {errors && <SEO title="GraphQL Error" />}
-      {tour && <SEO title={tour.title || 'Untitled'} />}
+      {errors && <SEO title='GraphQL Error' />}
+      {tour && <SEO title={tour.title.no || 'Untitled'} />}
 
       {errors && (
         <Container>
           <GraphQLErrorList errors={errors} />
         </Container>
       )}
-      <h1>{tour.title}</h1>
+      <h1>{tour.title.no}</h1>
       {/* {project && <Project {...project} />} */}
     </Layout>
   )

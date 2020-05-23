@@ -9,7 +9,7 @@ export default {
     {
       name: 'alt',
       title: 'Alternative text (for screen readers)',
-      type: 'string',
+      type: 'localeString',
       options: {
         isHighlighted: true
       }

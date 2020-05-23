@@ -9,23 +9,23 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => (
   <div className={styles.root}>
     <div className={styles.wrapper}>
       <h1 className={styles.branding}>
-        <Link to="/">{siteTitle}</Link>
+        <Link to='/'>{siteTitle}</Link>
       </h1>
 
       <button className={styles.toggleNavButton} onClick={showNav ? onHideNav : onShowNav}>
-        <Icon symbol="hamburger" />
+        <Icon symbol='hamburger' />
       </button>
 
       <nav className={cn(styles.nav, showNav && styles.showNav)}>
         <ul>
           <li>
-            <Link to="/no/om-oss/">Om oss</Link>
+            <Link to='/no/om-oss/'>Om oss</Link>
           </li>
           <li>
-            <Link to="/no/kontakt/">Kontakt</Link>
+            <Link to='/no/kontakt/'>Kontakt</Link>
           </li>
           <li>
-            <Link to="/no/turer">Turer</Link>
+            <Link to='/no/turer'>Turer</Link>
           </li>
         </ul>
       </nav>

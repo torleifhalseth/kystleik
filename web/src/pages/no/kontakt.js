@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-pascal-case */
 import React from 'react'
 import { graphql } from 'gatsby'
 import BlockContent from '../../components/block-content'
@@ -11,7 +12,9 @@ import { responsiveTitle1 } from '../../components/typography.module.css'
 export const query = graphql`
   query KontaktPageQuery {
     page: sanityPage(_id: { regex: "/(drafts.|)6ed157ec-92e8-4164-aabe-3c625db35c6c/" }) {
-      title
+      title {
+        nb
+      }
       _rawBody
     }
   }
@@ -38,10 +41,10 @@ const ContactPage = props => {
 
   return (
     <Layout>
-      <SEO title={page.title} />
+      <SEO title={page.title.nb} />
       <Container>
-        <h1 className={responsiveTitle1}>{page.title}</h1>
-        <BlockContent blocks={page._rawBody || []} />
+        <h1 className={responsiveTitle1}>{page.title.nb}</h1>
+        <BlockContent blocks={page._rawBody.nb || []} />
       </Container>
     </Layout>
   )

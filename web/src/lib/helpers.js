@@ -10,7 +10,7 @@ export function mapEdgesToNodes (data) {
 }
 
 export function filterOutDocsWithoutSlugs ({ slug }) {
-  return (slug || {}).current
+  return (slug || {}).nb.current
 }
 
 export function getBlogUrl (publishedAt, slug) {

@@ -41,11 +41,22 @@ export const query = graphql`
             asset {
               _id
             }
-            alt
+            alt {
+              en
+              nb
+            }
           }
-          title
+          title {
+            en
+            nb
+          }
           slug {
-            current
+            en {
+              current
+            }
+            nb {
+              current
+            }
           }
         }
       }

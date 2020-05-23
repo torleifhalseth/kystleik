@@ -15,7 +15,12 @@ async function createTourPages (graphql, actions, reporter) {
             node {
               id
               slug {
-                current
+                nb {
+                  current
+                }
+                en {
+                  current
+                }
               }
             }
           }
@@ -30,10 +35,10 @@ async function createTourPages (graphql, actions, reporter) {
 
     // Create tour pages.
     result.data.allSanityTour.edges.forEach(edge => {
-      const slug = edge.node.slug.current
+      const norwegianSlug = edge.node.slug.nb.current
       createPage({
         // Path for this page — required
-        path: `/no/turer/${slug}/`,
+        path: `/no/turer/${norwegianSlug}`,
         component: template,
         context: {
           // Add optional context data to be inserted

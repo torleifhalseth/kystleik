@@ -1,18 +1,17 @@
 import { Link } from 'gatsby'
 import React from 'react'
 import ProjectPreview from './project-preview'
-
 import styles from './project-preview-grid.module.css'
 
 function ProjectPreviewGrid (props) {
   return (
     <div className={styles.root}>
-      {props.title && (
+      {props.title.nb && (
         <h2 className={styles.headline}>
           {props.browseMoreHref ? (
-            <Link to={props.browseMoreHref}>{props.title}</Link>
+            <Link to={props.browseMoreHref}>{props.title.nb}</Link>
           ) : (
-            props.title
+            props.title.nb
           )}
         </h2>
       )}
