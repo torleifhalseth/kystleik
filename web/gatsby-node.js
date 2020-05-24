@@ -35,10 +35,9 @@ async function createTourPages (graphql, actions, reporter) {
 
     // Create tour pages.
     result.data.allSanityTour.edges.forEach(edge => {
-      const norwegianSlug = edge.node.slug.nb.current
       createPage({
         // Path for this page — required
-        path: `/no/turer/${norwegianSlug}`,
+        path: `/no/turer/${edge.node.slug.nb.current}`,
         component: template,
         context: {
           // Add optional context data to be inserted
@@ -49,7 +48,70 @@ async function createTourPages (graphql, actions, reporter) {
           //
           // The page "path" is always available as a GraphQL
           // argument.
-          id: edge.node.id
+          id: edge.node.id,
+          locale: 'nb'
+        }
+      })
+      createPage({
+        // Path for this page — required
+        path: `/en/tours/${edge.node.slug.en.current}`,
+        component: template,
+        context: {
+          id: edge.node.id,
+          locale: 'en'
+        }
+      })
+    })
+  })
+}
+
+async function createPages (graphql, actions, reporter) {
+  const { createPage } = actions
+  const template = require.resolve('./src/templates/page.js')
+  return graphql(
+    `
+      query loadPagesQuery($limit: Int!) {
+        allSanityPage(limit: $limit) {
+          edges {
+            node {
+              id
+              slug {
+                nb {
+                  current
+                }
+                en {
+                  current
+                }
+              }
+            }
+          }
+        }
+      }
+    `,
+    { limit: 1000 }
+  ).then(result => {
+    if (result.errors) {
+      throw result.errors
+    }
+
+    // Create tour pages.
+    result.data.allSanityPage.edges.forEach(edge => {
+      createPage({
+        // Path for this page — required
+        path: `/no/${edge.node.slug.nb.current}`,
+        component: template,
+        context: {
+          id: edge.node.id,
+          locale: 'nb'
+        }
+      })
+      createPage({
+        // Path for this page — required
+        path: `/en/${edge.node.slug.en.current}`,
+        component: template,
+        context: {
+          id: edge.node.id,
+          locale: 'en'
         }
       })
     })
@@ -57,5 +119,6 @@ async function createTourPages (graphql, actions, reporter) {
 }
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
+  await createPages(graphql, actions, reporter)
   await createTourPages(graphql, actions, reporter)
 }

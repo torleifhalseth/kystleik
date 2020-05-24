@@ -55,7 +55,7 @@ const ToursPage = props => {
   const tourNodes =
     data && data.tours && mapEdgesToNodes(data.tours).filter(filterOutDocsWithoutSlugs)
   return (
-    <Layout>
+    <Layout locale='nb'>
       <SEO title='Turer' />
       <Container>
         <h1 className={responsiveTitle1}>Turer</h1>

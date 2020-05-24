@@ -90,7 +90,7 @@ const IndexPage = props => {
   }
 
   return (
-    <Layout>
+    <Layout locale='nb'>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Container>
         <h1 hidden>Welcome to {site.title}</h1>

@@ -2,7 +2,6 @@ import React from 'react'
 import BlockText from './block-text'
 import { buildImageObj } from '../lib/helpers'
 import { imageUrlFor } from '../lib/image-url'
-
 import styles from './people-grid.module.css'
 import { responsiveTitle2 } from '../components/typography.module.css'
 

@@ -2,13 +2,15 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Container from '../components/container'
+import BlockContent from '../components/block-content'
+import { responsiveTitle1 } from '../components/typography.module.css'
 import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 
 export const query = graphql`
-  query TourTemplateQuery($id: String!) {
-    tour: sanityTour(id: { eq: $id }) {
+  query PageTemplateQuery($id: String!) {
+    page: sanityPage(id: { eq: $id }) {
       id
       mainImage {
         crop {
@@ -47,31 +49,34 @@ export const query = graphql`
           current
         }
       }
+      _rawBody
     }
   }
 `
 
-const TourTemplate = props => {
+const PageTemplate = props => {
   const {
     data,
     errors,
     pageContext: { locale }
   } = props
-  const tour = data && data.tour
+  const page = data && data.page
   return (
     <Layout locale={locale}>
       {errors && <SEO title='GraphQL Error' />}
-      {tour && <SEO title={tour.title.no || 'Untitled'} />}
+      {page && <SEO title={page.title[locale] || 'Untitled'} />}
 
       {errors && (
         <Container>
           <GraphQLErrorList errors={errors} />
         </Container>
       )}
-      <h1>{tour.title.no}</h1>
-      {/* {project && <Project {...project} />} */}
+      <Container>
+        <h1 className={responsiveTitle1}>{page.title[locale]}</h1>
+        <BlockContent blocks={page._rawBody[locale] || []} />
+      </Container>
     </Layout>
   )
 }
 
-export default TourTemplate
+export default PageTemplate
