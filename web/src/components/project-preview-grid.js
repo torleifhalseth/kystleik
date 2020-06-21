@@ -1,23 +1,19 @@
-import { Link } from 'gatsby'
-import React from 'react'
-import ProjectPreview from './project-preview'
-import styles from './project-preview-grid.module.css'
+import { Link } from 'gatsby';
+import React from 'react';
+import ProjectPreview from './project-preview';
+import styles from './project-preview-grid.module.css';
 
-function ProjectPreviewGrid (props) {
+function ProjectPreviewGrid({ title, browseMoreHref, nodes }) {
   return (
     <div className={styles.root}>
-      {props.title.nb && (
+      {title && (
         <h2 className={styles.headline}>
-          {props.browseMoreHref ? (
-            <Link to={props.browseMoreHref}>{props.title.nb}</Link>
-          ) : (
-            props.title.nb
-          )}
+          {browseMoreHref ? <Link to={browseMoreHref}>{title}</Link> : title}
         </h2>
       )}
       <ul className={styles.grid}>
-        {props.nodes &&
-          props.nodes.map(node => (
+        {nodes &&
+          nodes.map(node => (
             <li key={node.id}>
               <ProjectPreview {...node} />
             </li>
@@ -29,13 +25,13 @@ function ProjectPreviewGrid (props) {
         </div>
       )} */}
     </div>
-  )
+  );
 }
 
 ProjectPreviewGrid.defaultProps = {
   title: '',
   nodes: [],
-  browseMoreHref: ''
-}
+  browseMoreHref: '',
+};
 
-export default ProjectPreviewGrid
+export default ProjectPreviewGrid;

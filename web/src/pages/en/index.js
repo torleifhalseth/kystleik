@@ -1,15 +1,15 @@
 /* eslint-disable react/jsx-pascal-case */
 import React from 'react';
 import { graphql } from 'gatsby';
-import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from '../lib/helpers';
-import Container from '../components/container';
-import GraphQLErrorList from '../components/graphql-error-list';
-import ProjectPreviewGrid from '../components/project-preview-grid';
-import SEO from '../components/seo';
-import Layout from '../containers/layout';
+import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from '../../lib/helpers';
+import Container from '../../components/container';
+import GraphQLErrorList from '../../components/graphql-error-list';
+import ProjectPreviewGrid from '../../components/project-preview-grid';
+import SEO from '../../components/seo';
+import Layout from '../../containers/layout';
 
 export const query = graphql`
-  query IndexPageQuery {
+  query IndexPageQueryEn {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
       description
@@ -78,12 +78,11 @@ const IndexPage = props => {
   const tourNodes = (data || {}).tours
     ? mapEdgesToNodes(data.tours).filter(filterOutDocsWithoutSlugs)
     : [];
-
-  const browseMoreHref = '/no/turer/';
-  const tourNodesInNorwegian = tourNodes.map(tour => ({
-    slug: `${browseMoreHref}${tour.slug.nb.current}`,
+  const browseMoreHref = '/en/tours/';
+  const tourNodesInEnglish = tourNodes.map(tour => ({
+    slug: `${browseMoreHref}${tour.slug.en.current}`,
     mainImage: tour.mainImage,
-    title: tour.title.nb,
+    title: tour.title.en,
     _rawExcerpt: tour._rawExcerpt,
   }));
 
@@ -94,17 +93,17 @@ const IndexPage = props => {
   }
 
   return (
-    <Layout locale="nb">
+    <Layout locale="en">
       <SEO
         title={site.title}
         description={site.description}
         keywords={site.keywords}
       />
       <Container>
-        <h1>Velkommen til {site.title}!</h1>
-        {tourNodes && (
+        <h1>Welcome to {site.title}!</h1>
+        {tourNodesInEnglish && (
           <ProjectPreviewGrid
-            nodes={tourNodesInNorwegian}
+            nodes={tourNodesInEnglish}
             browseMoreHref={browseMoreHref}
           />
         )}
