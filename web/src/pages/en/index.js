@@ -6,6 +6,7 @@ import Container from '../../components/container';
 import GraphQLErrorList from '../../components/graphql-error-list';
 import ProjectPreviewGrid from '../../components/project-preview-grid';
 import SEO from '../../components/seo';
+import Hero from '../../components/Hero';
 import Layout from '../../containers/layout';
 
 export const query = graphql`
@@ -99,8 +100,9 @@ const IndexPage = props => {
         description={site.description}
         keywords={site.keywords}
       />
+      <Hero imgSrc="hero-climb.jpeg" />
       <Container>
-        <h1>Welcome to {site.title}!</h1>
+        <h1>Tours and courses with {site.title}</h1>
         {tourNodesInEnglish && (
           <ProjectPreviewGrid
             nodes={tourNodesInEnglish}

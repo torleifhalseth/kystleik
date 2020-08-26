@@ -14,7 +14,7 @@ function ProjectPreviewGrid({ title, browseMoreHref, nodes }) {
       <ul className={styles.grid}>
         {nodes &&
           nodes.map(node => (
-            <li key={node.id}>
+            <li key={node.title}>
               <ProjectPreview {...node} />
             </li>
           ))}

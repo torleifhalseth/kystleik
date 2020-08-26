@@ -37,12 +37,12 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle, locale }) => {
             ))}
             {isNorwegian && (
               <li>
-                <Link to="/no/turer">Turer</Link>
+                <Link to="/no/turer">Kurs og turar</Link>
               </li>
             )}
             {isEnglish && (
               <li>
-                <Link to="/en/tours">Tours</Link>
+                <Link to="/en/tours">Courses and tours</Link>
               </li>
             )}
             {isNorwegian && (

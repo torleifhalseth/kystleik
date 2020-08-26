@@ -1,10 +1,13 @@
 /* eslint-disable react/jsx-pascal-case */
-import React from 'react'
-import { graphql } from 'gatsby'
-import Container from '../components/container'
-import GraphQLErrorList from '../components/graphql-error-list'
-import SEO from '../components/seo'
-import Layout from '../containers/layout'
+import React from 'react';
+import { graphql } from 'gatsby';
+import Layout from '../containers/layout';
+import SEO from '../components/seo';
+import GraphQLErrorList from '../components/graphql-error-list';
+import BlockContent from '../components/block-content';
+import Container from '../components/container';
+import Hero from '../components/Hero';
+import { imageUrlFor } from '../lib/image-url';
 
 export const query = graphql`
   query TourTemplateQuery($id: String!) {
@@ -39,6 +42,7 @@ export const query = graphql`
         nb
         en
       }
+      _rawBody
       slug {
         en {
           current
@@ -49,29 +53,36 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
 const TourTemplate = props => {
   const {
     data,
     errors,
-    pageContext: { locale }
-  } = props
-  const tour = data && data.tour
+    pageContext: { locale },
+  } = props;
+  const tour = data && data.tour;
+  const _rawBody = tour._rawBody[locale];
+  console.log(data);
   return (
     <Layout locale={locale}>
-      {errors && <SEO title='GraphQL Error' />}
-      {tour && <SEO title={tour.title.no || 'Untitled'} />}
+      {errors && <SEO title="GraphQL Error" />}
+      {tour && <SEO title={tour.title[locale] || 'Untitled'} />}
 
       {errors && (
         <Container>
           <GraphQLErrorList errors={errors} />
         </Container>
       )}
-      <h1>{tour.title.no}</h1>
-      {/* {project && <Project {...project} />} */}
+      {tour.mainImage && <Hero imgSrc={imageUrlFor(tour.mainImage)} />}
+      <Container>
+        <h1>{tour.title[locale]}</h1>
+        {_rawBody && <BlockContent blocks={_rawBody} />}
+        {/* <div>{tour._rawBody[locale]}</div> */}
+        {/* {project && <Project {...project} />} */}
+      </Container>
     </Layout>
-  )
-}
+  );
+};
 
-export default TourTemplate
+export default TourTemplate;

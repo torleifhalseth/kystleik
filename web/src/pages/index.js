@@ -6,6 +6,7 @@ import Container from '../components/container';
 import GraphQLErrorList from '../components/graphql-error-list';
 import ProjectPreviewGrid from '../components/project-preview-grid';
 import SEO from '../components/seo';
+import Hero from '../components/Hero';
 import Layout from '../containers/layout';
 
 export const query = graphql`
@@ -79,7 +80,7 @@ const IndexPage = props => {
     ? mapEdgesToNodes(data.tours).filter(filterOutDocsWithoutSlugs)
     : [];
 
-  const browseMoreHref = '/no/turer/';
+  const browseMoreHref = '/no/kurs-og-turar/';
   const tourNodesInNorwegian = tourNodes.map(tour => ({
     slug: `${browseMoreHref}${tour.slug.nb.current}`,
     mainImage: tour.mainImage,
@@ -100,8 +101,9 @@ const IndexPage = props => {
         description={site.description}
         keywords={site.keywords}
       />
+      <Hero imgSrc="hero-climb.jpeg" />
       <Container>
-        <h1>Velkommen til {site.title}!</h1>
+        <h1>Kurs og turar</h1>
         {tourNodes && (
           <ProjectPreviewGrid
             nodes={tourNodesInNorwegian}
