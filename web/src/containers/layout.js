@@ -1,6 +1,6 @@
-import { graphql, StaticQuery } from 'gatsby'
-import React, { useState } from 'react'
-import Layout from '../components/layout'
+import { graphql, StaticQuery } from 'gatsby';
+import React, { useState } from 'react';
+import Layout from '../components/layout';
 
 const query = graphql`
   query SiteTitleQuery {
@@ -16,15 +16,15 @@ const query = graphql`
       country
     }
   }
-`
+`;
 
-function LayoutContainer (props) {
-  const [showNav, setShowNav] = useState(false)
-  function handleShowNav () {
-    setShowNav(true)
+function LayoutContainer(props) {
+  const [showNav, setShowNav] = useState(false);
+  function handleShowNav() {
+    setShowNav(true);
   }
-  function handleHideNav () {
-    setShowNav(false)
+  function handleHideNav() {
+    setShowNav(false);
   }
   return (
     <StaticQuery
@@ -32,13 +32,13 @@ function LayoutContainer (props) {
       render={data => {
         if (!data.site) {
           throw new Error(
-            'Missing "Site settings". Open the studio at http://localhost:3333 and add "Site settings" data'
-          )
+            'Missing "Site settings". Open the studio at http://localhost:3333 and add "Site settings" data',
+          );
         }
         if (!data.companyInfo) {
           throw new Error(
-            'Missing "Company info". Open the studio at http://localhost:3333 and add "Company info" data'
-          )
+            'Missing "Company info". Open the studio at http://localhost:3333 and add "Company info" data',
+          );
         }
         return (
           <Layout
@@ -49,10 +49,10 @@ function LayoutContainer (props) {
             onHideNav={handleHideNav}
             onShowNav={handleShowNav}
           />
-        )
+        );
       }}
     />
-  )
+  );
 }
 
-export default LayoutContainer
+export default LayoutContainer;

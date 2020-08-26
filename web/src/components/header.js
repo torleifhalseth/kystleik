@@ -6,7 +6,13 @@ import { cn } from '../lib/helpers';
 import styles from './header.module.css';
 import { usePageData } from '../hooks/use-page-data';
 
-const Header = ({ onHideNav, onShowNav, showNav, siteTitle, locale }) => {
+const Header = ({
+  onHideNav,
+  onShowNav,
+  showNav,
+  siteTitle,
+  locale = 'nb',
+}) => {
   const pages = usePageData();
   const linkLocale = locale === 'nb' || locale === 'nn' ? 'no' : locale;
   const isNorwegian = locale === 'nb' || locale === 'nn';
@@ -28,13 +34,15 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle, locale }) => {
 
         <nav className={cn(styles.nav, showNav && styles.showNav)}>
           <ul>
-            {pages.map(({ node: { title, id, slug } }) => (
-              <li key={id}>
-                <Link to={`/${linkLocale}/${slug[locale].current}`}>
-                  {title[locale]}
-                </Link>
-              </li>
-            ))}
+            {pages.map(({ node: { title, id, slug } }) => {
+              return (
+                <li key={id}>
+                  <Link to={`/${linkLocale}/${slug[locale].current}`}>
+                    {title[locale]}
+                  </Link>
+                </li>
+              );
+            })}
             {isNorwegian && (
               <li>
                 <Link to="/no/turer">Kurs og turar</Link>
