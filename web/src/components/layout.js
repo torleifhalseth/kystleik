@@ -1,8 +1,20 @@
 import React from 'react';
+import styled from 'styled-components';
 import Header from './header';
-
 import '../styles/layout.css';
 import styles from './layout.module.css';
+
+const SocialMediaList = styled.ul`
+  text-align: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+`;
 
 const Layout = ({
   children,
@@ -42,10 +54,26 @@ const Layout = ({
             </div>
           )}
         </div>
-        {/* <div className={styles.siteInfo}>
-          © {new Date().getFullYear()}, Built with <a href="https://www.sanity.io">Sanity</a> &amp;{' '}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </div> */}
+        <SocialMediaList>
+          <li>
+            <a
+              href="https://www.facebook.com/Kystleik"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Facebook
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.instagram.com/kystleik/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Instagram
+            </a>
+          </li>
+        </SocialMediaList>
       </div>
     </footer>
   </>
