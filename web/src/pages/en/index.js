@@ -100,7 +100,7 @@ const IndexPage = props => {
         description={site.description}
         keywords={site.keywords}
       />
-      <Hero imgSrc="hero-climb.jpeg" />
+      <Hero imgSrc="/hero-climb.jpeg" />
       <Container>
         <h1>Tours and courses with {site.title}</h1>
         {tourNodesInEnglish && (
