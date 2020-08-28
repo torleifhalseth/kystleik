@@ -13,7 +13,6 @@ function SEO({ description, title, image, lang }) {
         .url()
     : `https://www.kystleik.no${seoImage}`;
   const newTitle = title === name ? title : `${title} | ${name}`;
-  console.log(newTitle);
   return (
     <Helmet>
       <html lang={lang} />
