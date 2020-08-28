@@ -1,9 +1,18 @@
 require('dotenv').config();
+const path = require('path');
+
 const {
   api: { projectId, dataset },
 } = requireConfig('../studio/sanity.json');
 
 module.exports = {
+  siteMetadata: {
+    title: 'Kystleik',
+    description:
+      'Med havet som næraste nabo har vi verdas største og beste leikeplass',
+    author: '@kystleik',
+    siteUrl: 'https://www.kystleik.no/',
+  },
   plugins: [
     'gatsby-plugin-postcss',
     {
@@ -20,6 +29,27 @@ module.exports = {
         token: process.env.SANITY_TOKEN,
         watchMode: true,
         overlayDrafts: true,
+      },
+    },
+    { resolve: 'gatsby-plugin-sitemap' },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'Kystleik',
+        start_url: '/',
+        background_color: '#0099cc',
+        theme_color: '#0099cc',
+        display: 'standalone',
+        icon: 'src/images/favicon.png', // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-root-import',
+      options: {
+        containers: path.join(__dirname, 'src/containers'),
+        components: path.join(__dirname, 'src/components'),
+        images: path.join(__dirname, 'src/images'),
+        services: path.join(__dirname, 'src/services'),
       },
     },
   ],

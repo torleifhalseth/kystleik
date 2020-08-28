@@ -16,6 +16,11 @@ export const fields = [
     }
   },
   {
+    name: 'meta',
+    title: 'Metadata',
+    type: 'metadata'
+  },
+  {
     name: 'mainImage',
     title: 'Main image',
     type: 'mainImage'
@@ -25,7 +30,7 @@ export const fields = [
     title: 'Content',
     type: 'localeBlockContent'
   }
-]
+];
 
 export default {
   name: 'page',
@@ -41,4 +46,4 @@ export default {
   // You probably want to uncomment the next line once you've made the pages documents in the Studio. This will remove the pages document type from the create-menus.
   // __experimental_actions: ['update', 'publish'],
   fields
-}
+};

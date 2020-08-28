@@ -1,2 +1,4 @@
 User-agent: *
-Disallow: /
+Allow: /
+Sitemap: https://www.kystleik.no/sitemap.xml
+Host: https://www.kystleik.no

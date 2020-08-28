@@ -5,7 +5,7 @@ import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from '../../lib/helpers';
 import Container from '../../components/container';
 import GraphQLErrorList from '../../components/graphql-error-list';
 import ProjectPreviewGrid from '../../components/project-preview-grid';
-import SEO from '../../components/seo';
+import SEO from '../../components/SEO';
 import Hero from '../../components/Hero';
 import Layout from '../../containers/layout';
 
@@ -99,10 +99,11 @@ const IndexPage = props => {
         title={site.title}
         description={site.description}
         keywords={site.keywords}
+        lang="en"
       />
       <Hero imgSrc="/hero-climb.jpeg" />
       <Container>
-        <h1>Tours and courses with {site.title}</h1>
+        <h1>Tours and courses</h1>
         {tourNodesInEnglish && (
           <ProjectPreviewGrid
             nodes={tourNodesInEnglish}

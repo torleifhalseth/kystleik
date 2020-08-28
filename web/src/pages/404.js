@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-pascal-case */
 import React from 'react';
-import SEO from '../components/seo';
+import SEO from '../components/SEO';
 import Container from '../components/layout';
 import Layout from '../containers/layout';
 

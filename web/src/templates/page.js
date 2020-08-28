@@ -1,12 +1,12 @@
 /* eslint-disable react/jsx-pascal-case */
-import React from 'react'
-import { graphql } from 'gatsby'
-import Container from '../components/container'
-import BlockContent from '../components/block-content'
-import { responsiveTitle1 } from '../components/typography.module.css'
-import GraphQLErrorList from '../components/graphql-error-list'
-import SEO from '../components/seo'
-import Layout from '../containers/layout'
+import React from 'react';
+import { graphql } from 'gatsby';
+import Container from '../components/container';
+import BlockContent from '../components/block-content';
+import { responsiveTitle1 } from '../components/typography.module.css';
+import GraphQLErrorList from '../components/graphql-error-list';
+import SEO from '../components/SEO';
+import Layout from '../containers/layout';
 
 export const query = graphql`
   query PageTemplateQuery($id: String!) {
@@ -52,19 +52,24 @@ export const query = graphql`
       _rawBody
     }
   }
-`
+`;
 
 const PageTemplate = props => {
   const {
     data,
     errors,
-    pageContext: { locale }
-  } = props
-  const page = data && data.page
+    pageContext: { locale },
+  } = props;
+  const page = data && data.page;
   return (
     <Layout locale={locale}>
-      {errors && <SEO title='GraphQL Error' />}
-      {page && <SEO title={page.title[locale] || 'Untitled'} />}
+      {errors && <SEO title="GraphQL Error" />}
+      {page && (
+        <SEO
+          title={page.title[locale] || 'Untitled'}
+          lang={locale === 'nb' ? 'no' : 'en'}
+        />
+      )}
 
       {errors && (
         <Container>
@@ -76,7 +81,7 @@ const PageTemplate = props => {
         <BlockContent blocks={page._rawBody[locale] || []} />
       </Container>
     </Layout>
-  )
-}
+  );
+};
 
-export default PageTemplate
+export default PageTemplate;

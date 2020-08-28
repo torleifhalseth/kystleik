@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import Container from '../../components/container';
 import GraphQLErrorList from '../../components/graphql-error-list';
 import ProjectPreviewGrid from '../../components/project-preview-grid';
-import SEO from '../../components/seo';
+import SEO from '../../components/SEO';
 import Layout from '../../containers/layout';
 import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from '../../lib/helpers';
 
@@ -65,7 +65,7 @@ const ToursPage = props => {
   }));
   return (
     <Layout locale="en">
-      <SEO title="Tours" />
+      <SEO title="Tours" lang="en" />
       <Container>
         <h1 className={responsiveTitle1}>Tours</h1>
         {tourNodesInEnglish && tourNodesInEnglish.length > 0 && (

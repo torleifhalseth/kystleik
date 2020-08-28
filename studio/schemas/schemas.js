@@ -1,27 +1,28 @@
 // First, we must import the schema creator
-import createSchema from 'part:@sanity/base/schema-creator'
+import createSchema from 'part:@sanity/base/schema-creator';
 
 // Then import schema types from any plugins that might expose them
-import schemaTypes from 'all:part:@sanity/base/schema-type'
+import schemaTypes from 'all:part:@sanity/base/schema-type';
 // We import object and document schemas
-import localeSlug from './localeSlug'
-import localeString from './localeString'
-import localeBlockContent from './localeBlockContent'
-import blockContent from './blockContent'
-import blockText from './blockText'
+import localeSlug from './localeSlug';
+import localeString from './localeString';
+import localeBlockContent from './localeBlockContent';
+import blockContent from './blockContent';
+import blockText from './blockText';
 // import category from './category';
-import companyInfo from './companyInfo'
-import figure from './figure'
-import mainImage from './mainImage'
-import page from './page'
-import person from './person'
+import companyInfo from './companyInfo';
+import figure from './figure';
+import mainImage from './mainImage';
+import page from './page';
+import person from './person';
 // import post from './post'
-import postAuthor from './postAuthor'
+import postAuthor from './postAuthor';
 // import project from './project';
-import projectMember from './projectMember'
-import siteSettings from './siteSettings'
-import slideshow from './slideshow'
-import tour from './tour'
+import projectMember from './projectMember';
+import siteSettings from './siteSettings';
+import slideshow from './slideshow';
+import tour from './tour';
+import metadata from './metadata';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -37,6 +38,7 @@ export default createSchema({
     localeBlockContent,
     blockText,
     localeString,
+    metadata,
     // category,
     companyInfo,
     figure,
@@ -54,4 +56,4 @@ export default createSchema({
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
   ])
-})
+});

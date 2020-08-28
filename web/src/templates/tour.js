@@ -2,7 +2,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../containers/layout';
-import SEO from '../components/seo';
+import SEO from '../components/SEO';
 import GraphQLErrorList from '../components/graphql-error-list';
 import BlockContent from '../components/block-content';
 import Container from '../components/container';
@@ -67,7 +67,12 @@ const TourTemplate = props => {
   return (
     <Layout locale={locale}>
       {errors && <SEO title="GraphQL Error" />}
-      {tour && <SEO title={tour.title[locale] || 'Untitled'} />}
+      {tour && (
+        <SEO
+          title={tour.title[locale] || 'Untitled'}
+          lang={locale === 'nb' ? 'no' : 'en'}
+        />
+      )}
 
       {errors && (
         <Container>
@@ -78,8 +83,6 @@ const TourTemplate = props => {
       <Container>
         <h1>{tour.title[locale]}</h1>
         {_rawBody && <BlockContent blocks={_rawBody} />}
-        {/* <div>{tour._rawBody[locale]}</div> */}
-        {/* {project && <Project {...project} />} */}
       </Container>
     </Layout>
   );
