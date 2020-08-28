@@ -69,8 +69,10 @@ const TourTemplate = props => {
       {errors && <SEO title="GraphQL Error" />}
       {tour && (
         <SEO
-          title={tour.title[locale] || 'Untitled'}
+          title={tour.title[locale]}
+          description={tour.description[locale]}
           lang={locale === 'nb' ? 'no' : 'en'}
+          image={tour.mainImage}
         />
       )}
 
