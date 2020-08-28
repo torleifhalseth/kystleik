@@ -67,7 +67,7 @@ const PageTemplate = props => {
       {page && (
         <SEO
           title={page.title[locale] || 'Untitled'}
-          description={page.description[locale]}
+          description={page?.description?.[locale]}
           lang={locale === 'nb' ? 'no' : 'en'}
           image={page.mainImage}
         />

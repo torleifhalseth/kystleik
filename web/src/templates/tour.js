@@ -70,7 +70,7 @@ const TourTemplate = props => {
       {tour && (
         <SEO
           title={tour.title[locale]}
-          description={tour.description[locale]}
+          description={tour?.description?.[locale]}
           lang={locale === 'nb' ? 'no' : 'en'}
           image={tour.mainImage}
         />
