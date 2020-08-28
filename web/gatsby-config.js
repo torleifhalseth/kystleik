@@ -1,11 +1,14 @@
-require('dotenv').config()
+require('dotenv').config();
 const {
-  api: { projectId, dataset }
-} = requireConfig('../studio/sanity.json')
+  api: { projectId, dataset },
+} = requireConfig('../studio/sanity.json');
 
 module.exports = {
   plugins: [
     'gatsby-plugin-postcss',
+    {
+      resolve: 'gatsby-plugin-styled-components',
+    },
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-sanity',
@@ -16,11 +19,11 @@ module.exports = {
         // and add a token with read permissions
         token: process.env.SANITY_TOKEN,
         watchMode: true,
-        overlayDrafts: true
-      }
-    }
-  ]
-}
+        overlayDrafts: true,
+      },
+    },
+  ],
+};
 
 /**
  * We're requiring a file in the studio folder to make the monorepo
@@ -29,18 +32,18 @@ module.exports = {
  * with directions to enter the info manually or in the environment.
  */
 
-function requireConfig (path) {
+function requireConfig(path) {
   try {
-    return require('../studio/sanity.json')
+    return require('../studio/sanity.json');
   } catch (e) {
     console.error(
-      'Failed to require sanity.json. Fill in projectId and dataset name manually in gatsby-config.js'
-    )
+      'Failed to require sanity.json. Fill in projectId and dataset name manually in gatsby-config.js',
+    );
     return {
       api: {
         projectId: process.env.SANITY_PROJECT_ID || '',
-        dataset: process.env.SANITY_DATASET || ''
-      }
-    }
+        dataset: process.env.SANITY_DATASET || '',
+      },
+    };
   }
 }
