@@ -5,6 +5,11 @@ export const fields = [
     type: 'localeString'
   },
   {
+    name: 'description',
+    title: 'Beskrivelse',
+    type: 'localeString'
+  },
+  {
     name: 'slug',
     title: 'Slug',
     type: 'localeSlug',
@@ -14,11 +19,6 @@ export const fields = [
       source: 'title',
       maxLength: 96
     }
-  },
-  {
-    name: 'meta',
-    title: 'Metadata',
-    type: 'metadata'
   },
   {
     name: 'mainImage',

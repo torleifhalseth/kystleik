@@ -22,7 +22,6 @@ import projectMember from './projectMember';
 import siteSettings from './siteSettings';
 import slideshow from './slideshow';
 import tour from './tour';
-import metadata from './metadata';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -38,7 +37,6 @@ export default createSchema({
     localeBlockContent,
     blockText,
     localeString,
-    metadata,
     // category,
     companyInfo,
     figure,
