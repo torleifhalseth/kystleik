@@ -1,10 +1,28 @@
 import { Link } from 'gatsby';
 import React from 'react';
+import logo from 'images/logo.svg';
+import styled from 'styled-components';
 import Icon from './icons';
 import { cn } from '../lib/helpers';
-
 import styles from './header.module.css';
 import { usePageData } from '../hooks/use-page-data';
+
+const Logo = styled.div`
+  flex: 1;
+
+  a {
+    display: inline-flex;
+  }
+`;
+const LogoImg = styled.img`
+  width: 100px;
+`;
+
+const Heading = styled.h1`
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+`;
 
 const Header = ({
   onHideNav,
@@ -17,14 +35,16 @@ const Header = ({
   const linkLocale = locale === 'nb' || locale === 'nn' ? 'no' : locale;
   const isNorwegian = locale === 'nb' || locale === 'nn';
   const isEnglish = locale === 'en';
+  const to = isNorwegian ? '/' : '/en';
   return (
     <div className={styles.root}>
       <div className={styles.wrapper}>
-        <h1 className={styles.branding}>
-          {isNorwegian && <Link to="/">{siteTitle}</Link>}
-          {isEnglish && <Link to="/en">{siteTitle}</Link>}
-        </h1>
-
+        <Heading>{siteTitle}</Heading>
+        <Logo>
+          <Link to={to}>
+            <LogoImg alt={`${siteTitle} logo`} src={logo} />
+          </Link>
+        </Logo>
         <button
           className={styles.toggleNavButton}
           onClick={showNav ? onHideNav : onShowNav}

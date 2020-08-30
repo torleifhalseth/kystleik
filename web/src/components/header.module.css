@@ -93,7 +93,8 @@
   }
 
   @media (--media-min-small) {
-    display: block;
+    display: flex;
+    align-items: center;
 
     @nest & ul {
       list-style: none;
