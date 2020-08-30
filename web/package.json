@@ -3,9 +3,6 @@
   "name": "kystleik-web",
   "version": "1.0.0",
   "author": "Torleif <halseth.torleif@gmail.com>",
-  "engines": {
-    "node": "10.x"
-  },
   "scripts": {
     "build": "gatsby build",
     "deploy": "npm run now-deploy",
