@@ -52,6 +52,12 @@ module.exports = {
         services: path.join(__dirname, 'src/services'),
       },
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-176859990-1',
+      },
+    },
   ],
 };
 
