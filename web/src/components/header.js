@@ -9,11 +9,8 @@ import { usePageData } from '../hooks/use-page-data';
 
 const Logo = styled.div`
   flex: 1;
-
-  a {
-    display: inline-flex;
-  }
 `;
+
 const LogoImg = styled.img`
   width: 100px;
 `;
