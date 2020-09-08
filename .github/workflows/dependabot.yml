@@ -1,0 +1,4 @@
+# This is a basic workflow to help you get started with Actions
+
+- name: Dependabot Auto Merge
+  uses: ahmadnassri/action-dependabot-auto-merge@v1.2.2
