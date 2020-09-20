@@ -7,9 +7,9 @@ function ProjectPreviewGrid({ title, browseMoreHref, nodes, locale }) {
   return (
     <div className={styles.root}>
       {title && (
-        <h2 className={styles.headline}>
+        <h3>
           {browseMoreHref ? <Link to={browseMoreHref}>{title}</Link> : title}
-        </h2>
+        </h3>
       )}
       <ul className={styles.grid}>
         {nodes &&

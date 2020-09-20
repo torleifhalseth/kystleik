@@ -103,7 +103,8 @@ const IndexPage = props => {
       />
       <Hero src="/hero-climb.jpeg" alt="Girl climbing" />
       <Container>
-        <h1>Tours and courses</h1>
+        <h1 style={{ visibility: 'hidden' }}>{site.title}</h1>
+        <h2>Tours and courses</h2>
         {tourNodesInEnglish && (
           <ProjectPreviewGrid
             nodes={tourNodesInEnglish}

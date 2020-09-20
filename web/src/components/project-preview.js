@@ -1,11 +1,9 @@
 import { Link } from 'gatsby';
 import React from 'react';
-import { cn, buildImageObj } from '../lib/helpers';
+import { buildImageObj } from '../lib/helpers';
 import { imageUrlFor } from '../lib/image-url';
 import BlockText from './block-text';
-
 import styles from './project-preview.module.css';
-import { responsiveTitle3 } from './typography.module.css';
 
 function ProjectPreview({ slug, mainImage, title, _rawExcerpt, locale }) {
   return (
@@ -21,7 +19,7 @@ function ProjectPreview({ slug, mainImage, title, _rawExcerpt, locale }) {
           />
         )}
       </div>
-      <h3 className={cn(responsiveTitle3, styles.title)}>{title}</h3>
+      <h3>{title}</h3>
       {_rawExcerpt && (
         <div className={styles.excerpt}>
           <BlockText blocks={_rawExcerpt} />
