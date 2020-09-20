@@ -3,7 +3,7 @@ import React from 'react';
 import ProjectPreview from './project-preview';
 import styles from './project-preview-grid.module.css';
 
-function ProjectPreviewGrid({ title, browseMoreHref, nodes }) {
+function ProjectPreviewGrid({ title, browseMoreHref, nodes, locale }) {
   return (
     <div className={styles.root}>
       {title && (
@@ -15,15 +15,10 @@ function ProjectPreviewGrid({ title, browseMoreHref, nodes }) {
         {nodes &&
           nodes.map(node => (
             <li key={node.title}>
-              <ProjectPreview {...node} />
+              <ProjectPreview {...node} locale={locale} />
             </li>
           ))}
       </ul>
-      {/* {props.browseMoreHref && (
-        <div className={styles.browseMoreNav}>
-          <Link to={props.browseMoreHref}>Browse more</Link>
-        </div>
-      )} */}
     </div>
   );
 }
@@ -32,6 +27,7 @@ ProjectPreviewGrid.defaultProps = {
   title: '',
   nodes: [],
   browseMoreHref: '',
+  locale: 'nb',
 };
 
 export default ProjectPreviewGrid;

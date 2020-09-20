@@ -97,17 +97,18 @@ const IndexPage = props => {
     <Layout locale="en">
       <SEO
         title={site.title}
-        description={site.description}
+        description="With the ocean as our neighbor we have the worlds largest and best playground"
         keywords={site.keywords}
         lang="en"
       />
-      <Hero imgSrc="/hero-climb.jpeg" />
+      <Hero src="/hero-climb.jpeg" alt="Girl climbing" />
       <Container>
         <h1>Tours and courses</h1>
         {tourNodesInEnglish && (
           <ProjectPreviewGrid
             nodes={tourNodesInEnglish}
             browseMoreHref={browseMoreHref}
+            locale="en"
           />
         )}
       </Container>

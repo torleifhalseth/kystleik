@@ -42,6 +42,10 @@ export const query = graphql`
         nb
         en
       }
+      description {
+        nb
+        en
+      }
       _rawBody
       slug {
         en {
@@ -81,7 +85,12 @@ const TourTemplate = props => {
           <GraphQLErrorList errors={errors} />
         </Container>
       )}
-      {tour.mainImage && <Hero imgSrc={imageUrlFor(tour.mainImage)} />}
+      {tour.mainImage && (
+        <Hero
+          src={imageUrlFor(tour.mainImage)}
+          alt={tour.mainImage?.alt?.[locale]}
+        />
+      )}
       <Container>
         <h1>{tour.title[locale]}</h1>
         {_rawBody && <BlockContent blocks={_rawBody} />}

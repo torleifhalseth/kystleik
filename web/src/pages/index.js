@@ -102,13 +102,14 @@ const IndexPage = props => {
         keywords={site.keywords}
         lang="no"
       />
-      <Hero imgSrc="/hero-climb.jpeg" />
+      <Hero src="/hero-climb.jpeg" alt="Jente som klatrer" />
       <Container>
         <h1>Kurs og turar</h1>
         {tourNodes && (
           <ProjectPreviewGrid
             nodes={tourNodesInNorwegian}
             browseMoreHref={browseMoreHref}
+            locale="nb"
           />
         )}
       </Container>
