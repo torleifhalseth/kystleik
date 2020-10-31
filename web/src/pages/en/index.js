@@ -119,6 +119,8 @@ const IndexPage = props => {
     );
   }
 
+  const isWindowDefined = typeof window !== 'undefined';
+
   return (
     <Layout locale="en">
       <SEO
@@ -144,8 +146,12 @@ const IndexPage = props => {
         {site.mainImage && (
           <Hero
             width="100%"
-            height={window.innerWidth >= 768 ? '680px' : '320px'}
-            src={imageUrlFor(site.mainImage).width(window.innerWidth)}
+            height={
+              isWindowDefined && window.innerWidth >= 768 ? '680px' : '320px'
+            }
+            src={imageUrlFor(site.mainImage).width(
+              (isWindowDefined && window?.innerWidth) || 1800,
+            )}
             alt={site.mainImage?.alt?.en}
           />
         )}
