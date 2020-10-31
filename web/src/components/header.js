@@ -21,6 +21,19 @@ const Heading = styled.h1`
   left: -9999px;
 `;
 
+const getMenuButtonText = (isNorwegian, showNav) => {
+  if (isNorwegian) {
+    if (showNav) {
+      return 'Skjul meny';
+    }
+    return 'Hvis meny';
+  }
+  if (showNav) {
+    return 'Hide menu';
+  }
+  return 'Show menu';
+};
+
 const Header = ({
   onHideNav,
   onShowNav,
@@ -45,6 +58,7 @@ const Header = ({
         <button
           className={styles.toggleNavButton}
           onClick={showNav ? onHideNav : onShowNav}
+          aria-label={getMenuButtonText(isNorwegian, showNav)}
         >
           <Icon symbol="hamburger" />
         </button>
