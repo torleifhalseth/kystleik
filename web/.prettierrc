@@ -1,0 +1,8 @@
+{
+  "endOfLine": "lf",
+  "parser": "babel",
+  "singleQuote": true,
+  "trailingComma": "all",
+  "printWidth": 80,
+  "tabWidth": 2
+}
