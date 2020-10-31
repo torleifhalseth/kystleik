@@ -8,11 +8,37 @@ import ProjectPreviewGrid from '../components/project-preview-grid';
 import SEO from '../components/SEO';
 import Hero from '../components/Hero';
 import Layout from '../containers/layout';
+import { imageUrlFor } from '../lib/image-url';
 
 export const query = graphql`
   query IndexPageQuery {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
+      mainImage {
+        crop {
+          _key
+          _type
+          top
+          bottom
+          left
+          right
+        }
+        hotspot {
+          _key
+          _type
+          x
+          y
+          height
+          width
+        }
+        asset {
+          _id
+        }
+        alt {
+          en
+          nb
+        }
+      }
       description
       keywords
     }
@@ -116,7 +142,14 @@ const IndexPage = props => {
             fill="white"
           />
         </svg>
-        <Hero src="/hero-climb.jpeg" alt="Jente som klatrer" />
+        {site.mainImage && (
+          <Hero
+            width="100%"
+            height={window.innerWidth >= 768 ? '680px' : '320px'}
+            src={imageUrlFor(site.mainImage).width(window.innerWidth)}
+            alt={site.mainImage?.alt?.nb}
+          />
+        )}
         <svg
           style={{
             position: 'absolute',

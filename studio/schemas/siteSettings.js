@@ -1,4 +1,4 @@
-import { MdSettings } from 'react-icons/md'
+import { MdSettings } from 'react-icons/md';
 
 export default {
   name: 'siteSettings',
@@ -12,6 +12,11 @@ export default {
       name: 'title',
       title: 'Title',
       type: 'string'
+    },
+    {
+      name: 'mainImage',
+      title: 'Main image',
+      type: 'mainImage'
     },
     {
       name: 'description',
@@ -33,4 +38,4 @@ export default {
       type: 'string'
     }
   ]
-}
+};
