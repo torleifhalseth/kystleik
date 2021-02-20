@@ -67,7 +67,6 @@ const TourTemplate = props => {
   } = props;
   const tour = data && data.tour;
   const _rawBody = tour._rawBody[locale];
-  console.log(data);
   return (
     <Layout locale={locale}>
       {errors && <SEO title="GraphQL Error" />}
