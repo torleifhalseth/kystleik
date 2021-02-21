@@ -9,6 +9,7 @@ import SEO from '../components/SEO';
 import Hero from '../components/Hero';
 import Layout from '../containers/layout';
 import { imageUrlFor } from '../lib/image-url';
+import RichResult from '../components/RichResult';
 
 export const query = graphql`
   query IndexPageQuery {
@@ -129,6 +130,7 @@ const IndexPage = props => {
         keywords={site.keywords}
         lang="no"
       />
+      <RichResult />
       <div style={{ position: 'relative' }}>
         <svg
           style={{ position: 'absolute', top: '-2px', left: '0' }}
