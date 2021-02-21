@@ -4,7 +4,7 @@ import Helmet from 'react-helmet';
 import seoImage from 'images/seo.png';
 import { urlFor } from 'services/sanity.service';
 
-function SEO({ description, title, image, lang }) {
+function SEO({ description, title, image, lang, keywords }) {
   const name = 'Kystleik';
   const imageSrc = image
     ? urlFor(image)
@@ -26,6 +26,9 @@ function SEO({ description, title, image, lang }) {
       <meta property="og:image" content={imageSrc} />
       <meta property="og:image:type" content="image/png" />
       <meta name="twitter:card" content="summary" />
+      {keywords && keywords.length > 0 && (
+        <meta name="keywords" content={keywords.join(', ')} />
+      )}
     </Helmet>
   );
 }
