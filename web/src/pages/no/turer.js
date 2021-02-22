@@ -65,9 +65,9 @@ const ToursPage = props => {
   }));
   return (
     <Layout locale="nb">
-      <SEO title="Kurs og turar" lang="no" />
+      <SEO title="Turar" lang="no" />
       <Container>
-        <h1 className={responsiveTitle1}>Kurs og turar</h1>
+        <h1 className={responsiveTitle1}>Turar</h1>
         {tourNodesInNorwegian && tourNodesInNorwegian.length > 0 && (
           <ProjectPreviewGrid nodes={tourNodesInNorwegian} />
         )}
