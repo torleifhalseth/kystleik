@@ -132,18 +132,16 @@ const IndexPage = props => {
       />
       <RichResult />
       {site.mainImage && (
-        <Container>
-          <Hero
-            width="100%"
-            height={
-              isWindowDefined && window.innerWidth >= 768 ? '680px' : '320px'
-            }
-            src={imageUrlFor(site.mainImage).width(
-              (isWindowDefined && window?.innerWidth) || 1800,
-            )}
-            alt={site.mainImage?.alt?.nb}
-          />
-        </Container>
+        <Hero
+          width="100%"
+          height={
+            isWindowDefined && window.innerWidth >= 768 ? '680px' : '320px'
+          }
+          src={imageUrlFor(site.mainImage).width(
+            (isWindowDefined && window?.innerWidth) || 1800,
+          )}
+          alt={site.mainImage?.alt?.nb}
+        />
       )}
       <Container>
         <h1 style={{ visibility: 'hidden' }}>{site.title}</h1>

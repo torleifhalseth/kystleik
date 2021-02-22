@@ -11,8 +11,18 @@ const HeroImage = styled.img`
   }
 `;
 
+const Container = styled.div`
+  position: relative;
+  box-sizing: border-box;
+  max-width: 960px;
+  margin: 0 auto;
+  @media (min-width: 450px) {
+    padding: 2em;
+  }
+`;
+
 export default props => (
-  <div style={{ position: 'relative' }}>
+  <Container>
     <svg
       style={{ position: 'absolute', top: '-2px', left: '0' }}
       width="100%"
@@ -46,5 +56,5 @@ export default props => (
         d="M-46 52c40.5 34.5 306.5-30.521 1013 59C2052 235.336 1871.01-22.204 2460.01 2.1c444.73 18.35 723.5 105.934 1130 148.208s733.5 12.931 733.5 12.931V301.5H.513S-46 215-46 52z"
       />
     </svg>
-  </div>
+  </Container>
 );

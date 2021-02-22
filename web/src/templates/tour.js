@@ -85,12 +85,10 @@ const TourTemplate = props => {
         </Container>
       )}
       {tour.mainImage && (
-        <Container>
-          <Hero
-            src={imageUrlFor(tour.mainImage)}
-            alt={tour.mainImage?.alt?.[locale]}
-          />
-        </Container>
+        <Hero
+          src={imageUrlFor(tour.mainImage)}
+          alt={tour.mainImage?.alt?.[locale]}
+        />
       )}
       <Container>
         <h1>{tour.title[locale]}</h1>
