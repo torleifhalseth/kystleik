@@ -16,7 +16,7 @@ export default () => (
             ],
             "address": {
               "@type": "PostalAddress",
-              "streetAddress": "Holmen 11",
+              "streetAddress": "Vodlavegen 2",
               "addressLocality": "Glesvær",
               "addressRegion": "Vestland",
               "postalCode": "5381",
