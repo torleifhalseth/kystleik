@@ -145,7 +145,7 @@ const IndexPage = props => {
       )}
       <Container>
         <h1 style={{ visibility: 'hidden' }}>{site.title}</h1>
-        <h2>Turar</h2>
+        <h2>Kurs og turer</h2>
         {tourNodes && (
           <ProjectPreviewGrid
             nodes={tourNodesInNorwegian}
