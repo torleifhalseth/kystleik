@@ -56,7 +56,7 @@ const ToursPage = props => {
     data &&
     data.tours &&
     mapEdgesToNodes(data.tours).filter(filterOutDocsWithoutSlugs);
-  const browseMoreHref = '/no/kurs-og-turer/';
+  const browseMoreHref = '/no/turer/';
   const tourNodesInNorwegian = tourNodes.map(tour => ({
     slug: `${browseMoreHref}${tour.slug.nb.current}`,
     mainImage: tour.mainImage,
