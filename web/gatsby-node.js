@@ -37,7 +37,7 @@ async function createTourPages(graphql, actions, reporter) {
     result.data.allSanityTour.edges.forEach(edge => {
       createPage({
         // Path for this page — required
-        path: `/no/turer/${edge.node.slug.nb.current}`,
+        path: `/no/kurs-og-aktiviteter/${edge.node.slug.nb.current}`,
         component: template,
         context: {
           // Add optional context data to be inserted
@@ -54,7 +54,7 @@ async function createTourPages(graphql, actions, reporter) {
       });
       createPage({
         // Path for this page — required
-        path: `/en/tours/${edge.node.slug.en.current}`,
+        path: `/en/courses-and-tours/${edge.node.slug.en.current}`,
         component: template,
         context: {
           id: edge.node.id,

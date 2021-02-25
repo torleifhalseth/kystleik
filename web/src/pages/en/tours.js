@@ -56,7 +56,7 @@ const ToursPage = props => {
     data &&
     data.tours &&
     mapEdgesToNodes(data.tours).filter(filterOutDocsWithoutSlugs);
-  const browseMoreHref = '/en/tours/';
+  const browseMoreHref = '/en/courses-and-tours/';
   const tourNodesInEnglish = tourNodes.map(tour => ({
     slug: `${browseMoreHref}${tour.slug.en.current}`,
     mainImage: tour.mainImage,
@@ -65,9 +65,9 @@ const ToursPage = props => {
   }));
   return (
     <Layout locale="en">
-      <SEO title="Tours" lang="en" />
+      <SEO title="Courses and tours" lang="en" />
       <Container>
-        <h1 className={responsiveTitle1}>Tours</h1>
+        <h1 className={responsiveTitle1}>Courses and tours</h1>
         {tourNodesInEnglish && tourNodesInEnglish.length > 0 && (
           <ProjectPreviewGrid nodes={tourNodesInEnglish} />
         )}

@@ -106,7 +106,7 @@ const IndexPage = props => {
   const tourNodes = (data || {}).tours
     ? mapEdgesToNodes(data.tours).filter(filterOutDocsWithoutSlugs)
     : [];
-  const browseMoreHref = '/en/tours/';
+  const browseMoreHref = '/en/courses-and-tours/';
   const tourNodesInEnglish = tourNodes.map(tour => ({
     slug: `${browseMoreHref}${tour.slug.en.current}`,
     mainImage: tour.mainImage,
@@ -145,7 +145,7 @@ const IndexPage = props => {
       )}
       <Container>
         <h1 style={{ visibility: 'hidden' }}>{site.title}</h1>
-        <h2>Tours and courses</h2>
+        <h2>Courses and tours</h2>
         {tourNodesInEnglish && (
           <ProjectPreviewGrid
             nodes={tourNodesInEnglish}

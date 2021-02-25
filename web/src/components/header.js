@@ -76,12 +76,12 @@ const Header = ({
             })}
             {isNorwegian && (
               <li>
-                <Link to="/no/turer">Kurst og turer</Link>
+                <Link to="/no/kurs-og-aktiviteter">Kurs og aktiviteter</Link>
               </li>
             )}
             {isEnglish && (
               <li>
-                <Link to="/en/tours">Courses and tours</Link>
+                <Link to="/en/courses-and-tours">Courses and tours</Link>
               </li>
             )}
             {isNorwegian && (
