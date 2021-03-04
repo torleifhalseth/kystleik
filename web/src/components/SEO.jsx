@@ -35,7 +35,7 @@ function SEO({ description, title, image, lang, keywords }) {
 
 SEO.defaultProps = {
   description:
-    'Med havet som næraste nabo har vi verdas største og beste leikeplass',
+    'Kystleik tilbyr SUP kurs, teambuilding, guidedet tur, events, ulike aktiviter for enkeltpersoner, grupper og firma/bedrifter på Sotra (Øygarden) og i Bergen. Med havet som nærmeste nabo har vi verdens største og beste lekeplass.',
   title: 'Kystleik',
 };
 
