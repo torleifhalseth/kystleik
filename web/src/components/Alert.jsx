@@ -11,6 +11,10 @@ export default styled(Alert)`
   border-radius: 8px;
   background: hsla(211, 96%, 90%, 0.5);
 
+  @media (min-width: 768px) {
+    padding: 2rem 2rem 2.4rem;
+  }
+
   h2 {
     margin-top: 0;
   }
