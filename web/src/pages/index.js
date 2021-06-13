@@ -10,6 +10,7 @@ import Hero from '../components/Hero';
 import Layout from '../containers/layout';
 import { imageUrlFor } from '../lib/image-url';
 import RichResult from '../components/RichResult';
+import Alert from '../components/Alert';
 
 export const query = graphql`
   query IndexPageQuery {
@@ -91,7 +92,7 @@ export const query = graphql`
   }
 `;
 
-const IndexPage = props => {
+const IndexPage = (props) => {
   const { data, errors } = props;
 
   if (errors) {
@@ -108,7 +109,7 @@ const IndexPage = props => {
     : [];
 
   const browseMoreHref = '/no/kurs-og-aktiviteter/';
-  const tourNodesInNorwegian = tourNodes.map(tour => ({
+  const tourNodesInNorwegian = tourNodes.map((tour) => ({
     slug: `${browseMoreHref}${tour.slug.nb.current}`,
     mainImage: tour.mainImage,
     title: tour.title.nb,
@@ -131,6 +132,40 @@ const IndexPage = props => {
         lang="no"
       />
       <RichResult />
+      <Container>
+        <Alert>
+          <h2>Sommeraktiviteter for barn</h2>
+          <ul>
+            <li>
+              <a
+                href="https://forms.gle/j8R4T1NUYaEG39Fv5"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Påmelding til sommercamp i juni og juli
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://forms.gle/kcPXziNxUzpU7Hq37"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Påmelding til dagaktiviteter i juni
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://forms.gle/FZZVh3kv4rUM58417"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Påmelding til dagaktiviteter i august
+              </a>
+            </li>
+          </ul>
+        </Alert>
+      </Container>
       {site.mainImage && (
         <Hero
           width="100%"

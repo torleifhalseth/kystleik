@@ -21,7 +21,7 @@
     "@sanity/image-url": "^0.140.22",
     "date-fns": "^1.30.1",
     "dotenv": "^8.2.0",
-    "gatsby": "^2.32.4",
+    "gatsby": "^2.32.12",
     "gatsby-plugin-google-analytics": "^2.11.0",
     "gatsby-plugin-postcss": "^2.3.13",
     "gatsby-plugin-react-helmet": "^3.10.0",
@@ -33,10 +33,10 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-helmet": "^5.2.1",
-    "styled-components": "^5.2.1"
+    "styled-components": "^5.2.3"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-optional-chaining": "^7.12.17",
+    "@babel/plugin-proposal-optional-chaining": "^7.13.12",
     "babel-eslint": "^10.1.0",
     "babel-plugin-styled-components": "^1.12.0",
     "babel-preset-gatsby": "^0.5.16",
@@ -46,13 +46,13 @@
     "eslint-config-standard-react": "^9.2.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^10.0.0",
-    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-promise": "^4.3.1",
-    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-standard": "^4.1.0",
-    "gatsby-plugin-manifest": "^2.12.0",
+    "gatsby-plugin-manifest": "^2.12.1",
     "gatsby-plugin-sitemap": "^2.12.0",
-    "prettier-eslint-cli": "^5.0.0",
+    "prettier-eslint-cli": "^5.0.1",
     "prop-types": "^15.7.2"
   }
 }

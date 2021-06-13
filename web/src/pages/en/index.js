@@ -10,6 +10,7 @@ import Hero from '../../components/Hero';
 import Layout from '../../containers/layout';
 import { imageUrlFor } from '../../lib/image-url';
 import RichResult from '../../components/RichResult';
+import Alert from '../../components/Alert';
 
 export const query = graphql`
   query IndexPageQueryEn {
@@ -91,7 +92,7 @@ export const query = graphql`
   }
 `;
 
-const IndexPage = props => {
+const IndexPage = (props) => {
   const { data, errors } = props;
 
   if (errors) {
@@ -107,7 +108,7 @@ const IndexPage = props => {
     ? mapEdgesToNodes(data.tours).filter(filterOutDocsWithoutSlugs)
     : [];
   const browseMoreHref = '/en/courses-and-tours/';
-  const tourNodesInEnglish = tourNodes.map(tour => ({
+  const tourNodesInEnglish = tourNodes.map((tour) => ({
     slug: `${browseMoreHref}${tour.slug.en.current}`,
     mainImage: tour.mainImage,
     title: tour.title.en,
@@ -131,6 +132,40 @@ const IndexPage = props => {
         lang="en"
       />
       <RichResult />
+      <Container>
+        <Alert>
+          <h2>Summer activities for children</h2>
+          <ul>
+            <li>
+              <a
+                href="https://forms.gle/j8R4T1NUYaEG39Fv5"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Registration for summer camp in June and July
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://forms.gle/kcPXziNxUzpU7Hq37"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Registration for activities in June
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://forms.gle/FZZVh3kv4rUM58417"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Registration for activities in August
+              </a>
+            </li>
+          </ul>
+        </Alert>
+      </Container>
       {site.mainImage && (
         <Hero
           width="100%"
