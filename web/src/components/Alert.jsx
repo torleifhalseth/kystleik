@@ -7,7 +7,7 @@ const Alert = ({ className, children }) => (
 
 export default styled(Alert)`
   box-sizing: border-box;
-  padding: 1em 1em 1.2rem;
+  padding: 1em 1em 1.6rem;
   border-radius: 8px;
   background: hsla(211, 96%, 90%, 0.5);
 
