@@ -1,19 +1,17 @@
-import BaseBlockContent from '@sanity/block-content-to-react'
+import { PortableText } from '@portabletext/react'
 import React from 'react'
 
 import typography from './typography.module.css'
 
-const serializers = {
-  types: {
-    block (props) {
-      switch (props.node.style) {
-        default:
-          return <p className={typography.paragraph}>{props.children}</p>
-      }
-    }
+const components = {
+  block: {
+    normal: ({ children }) => <p className={typography.paragraph}>{children}</p>,
   }
 }
 
-const BlockText = ({ blocks }) => <BaseBlockContent blocks={blocks} serializers={serializers} />
+const BlockText = ({ blocks }) => {
+  if (!blocks) return null
+  return <PortableText value={blocks} components={components} />
+}
 
 export default BlockText

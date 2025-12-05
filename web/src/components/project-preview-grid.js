@@ -1,14 +1,14 @@
-import { Link } from 'gatsby';
-import React from 'react';
-import ProjectPreview from './project-preview';
-import styles from './project-preview-grid.module.css';
+import Link from 'next/link'
+import React from 'react'
+import ProjectPreview from './project-preview'
+import styles from './project-preview-grid.module.css'
 
 function ProjectPreviewGrid({ title, browseMoreHref, nodes, locale }) {
   return (
     <div className={styles.root}>
       {title && (
         <h3>
-          {browseMoreHref ? <Link to={browseMoreHref}>{title}</Link> : title}
+          {browseMoreHref ? <Link href={browseMoreHref}>{title}</Link> : title}
         </h3>
       )}
       <ul className={styles.grid}>
@@ -20,7 +20,7 @@ function ProjectPreviewGrid({ title, browseMoreHref, nodes, locale }) {
           ))}
       </ul>
     </div>
-  );
+  )
 }
 
 ProjectPreviewGrid.defaultProps = {
@@ -28,6 +28,6 @@ ProjectPreviewGrid.defaultProps = {
   nodes: [],
   browseMoreHref: '',
   locale: 'nb',
-};
+}
 
-export default ProjectPreviewGrid;
+export default ProjectPreviewGrid

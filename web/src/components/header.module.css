@@ -13,7 +13,7 @@
   padding: 1em;
   display: flex;
 
-  @media (--media-min-small) {
+  @media (min-width: 450px) {
     padding: 1.5em 1.5em;
   }
 }
@@ -37,6 +37,17 @@
   }
 }
 
+.logo {
+  display: inline-block;
+  padding: 0.5em;
+  color: inherit;
+  text-decoration: none;
+}
+
+.logoImg {
+  width: 100px;
+}
+
 .toggleNavButton {
   appearance: none;
   font-size: 25px;
@@ -50,7 +61,7 @@
     display: block;
   }
 
-  @media (--media-min-small) {
+  @media (min-width: 450px) {
     display: none;
   }
 }
@@ -75,7 +86,7 @@
     }
   }
 
-  @media (--media-max-small) {
+  @media (max-width: 449px) {
     position: absolute;
     background: #FCF8F3;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
@@ -92,7 +103,7 @@
     }
   }
 
-  @media (--media-min-small) {
+  @media (min-width: 450px) {
     display: flex;
     align-items: center;
 

@@ -4,7 +4,7 @@
 .content {
   min-height: calc(100% - 73px - 152px);
 
-  @media (--media-min-small) {
+  @media (min-width: 450px) {
     min-height: calc(100% - 90px - 169px);
   }
 }
@@ -19,7 +19,7 @@
   padding: 1.5em;
   margin: 0 auto;
 
-  @media (--media-min-small) {
+  @media (min-width: 450px) {
     padding: 2em;
   }
 }
@@ -27,6 +27,18 @@
 .companyAddress {
   text-align: center;
   margin: 0 0 1rem;
+}
+
+.socialMediaList {
+  text-align: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.socialMediaList li {
+  display: inline-block;
+  margin-right: 20px;
 }
 
 .siteInfo {
