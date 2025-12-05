@@ -12,7 +12,7 @@ const getMenuButtonText = (isNorwegian, showNav) => {
     if (showNav) {
       return 'Skjul meny'
     }
-    return 'Hvis meny'
+    return 'Vis meny'
   }
   if (showNav) {
     return 'Hide menu'
