@@ -1,27 +1,20 @@
 {
-  "private": false,
+  "private": true,
   "name": "kystleik-monorepo",
   "version": "2.0.0",
   "author": "Kystleik <hello@kystleik.no>",
   "engines": {
-    "node": ">=18"
+    "node": ">=18",
+    "pnpm": ">=9"
   },
   "scripts": {
-    "clean": "lerna clean",
-    "deploy": "lerna run deploy",
-    "empty-cache": "cd web && rm -rf .next",
-    "init": "cd studio && sanity init",
-    "format": "lerna run format",
-    "lint": "lerna run lint",
-    "postinstall": "lerna bootstrap",
-    "sanity-deploy": "lerna run sanity-deploy",
-    "start": "lerna run start --parallel",
-    "dev": "cd web && npm run dev",
-    "build": "cd web && npm run build",
-    "test": "echo \"No tests specified\""
+    "dev": "pnpm --filter web dev",
+    "build": "pnpm --filter web build",
+    "start": "pnpm --filter web start",
+    "lint": "pnpm --filter web lint",
+    "clean": "pnpm --recursive exec -- rm -rf node_modules .next out dist",
+    "studio:dev": "pnpm --filter studio dev",
+    "studio:deploy": "pnpm --filter studio deploy"
   },
-  "devDependencies": {
-    "lerna": "^3.14.1",
-    "rimraf": "^2.6.3"
-  }
+  "devDependencies": {}
 }

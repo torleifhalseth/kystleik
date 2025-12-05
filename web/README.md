@@ -1,30 +1,34 @@
 # Kystleik Website - Next.js Migration
 
-This website has been migrated from Gatsby to Next.js 14 with App Router.
+This website has been migrated from Gatsby to Next.js 15 with App Router.
 
 ## Tech Stack
 
-- **Framework**: Next.js 14 with App Router
+- **Framework**: Next.js 15 with App Router
 - **Styling**: CSS Modules + Tailwind CSS
 - **CMS**: Sanity.io
 - **Content Rendering**: Portable Text (@portabletext/react)
+- **Package Manager**: pnpm (monorepo)
 
 ## Getting Started
 
 ### Prerequisites
 
 - Node.js 18+ or 20+
+- pnpm 9+ (install with `npm install -g pnpm`)
 - Access to Sanity project (projectId: qc3nk3mq)
 
 ### Installation
 
+From the root directory:
+
 ```bash
-npm install
+pnpm install
 ```
 
 ### Environment Variables
 
-Create a `.env.local` file:
+Create a `.env.local` file in the `web/` directory:
 
 ```
 NEXT_PUBLIC_SANITY_PROJECT_ID=qc3nk3mq
@@ -34,17 +38,27 @@ SANITY_TOKEN=your_sanity_token_here
 
 ### Development
 
+From the root directory:
+
 ```bash
-npm run dev
+pnpm dev
+```
+
+Or from the web directory:
+
+```bash
+cd web
+pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to view the site.
 
 ### Building
 
+From the root directory:
+
 ```bash
-npm run build
-npm run start
+pnpm build
 ```
 
 ### Static Export
@@ -61,7 +75,7 @@ const nextConfig = {
 Then build:
 
 ```bash
-npm run build
+pnpm build
 ```
 
 The static files will be in the `out/` directory.
