@@ -1,8 +1,11 @@
 import Container from '@/components/container'
-import Hero from '@/components/Hero-new'
-import BlockContent from '@/components/block-content-new'
+import Hero from '@/components/Hero'
+import BlockContent from '@/components/block-content'
 import { getPageBySlug, getAllPages, imageUrlFor } from '@/lib/sanity'
 import { notFound } from 'next/navigation'
+
+export const dynamic = 'force-static'
+export const dynamicParams = true
 
 export async function generateStaticParams() {
   const pages = await getAllPages()

@@ -1,4 +1,4 @@
-import Layout from '@/components/layout-new'
+import Layout from '@/components/layout'
 import { getSiteSettings, getCompanyInfo, getAllPages } from '@/lib/sanity'
 
 export const metadata = {

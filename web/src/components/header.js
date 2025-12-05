@@ -1,63 +1,47 @@
-import { Link } from 'gatsby';
-import React from 'react';
-import logo from 'images/logo.svg';
-import styled from 'styled-components';
-import Icon from './icons';
-import { cn } from '../lib/helpers';
-import styles from './header.module.css';
-import { usePageData } from '../hooks/use-page-data';
+'use client'
 
-const Logo = styled.div`
-  flex: 1;
-`;
-
-const LogoImg = styled.img`
-  width: 100px;
-`;
-
-const Heading = styled.h1`
-  position: absolute;
-  top: -9999px;
-  left: -9999px;
-`;
+import Link from 'next/link'
+import React, { useState } from 'react'
+import logo from '@/images/logo.svg'
+import Icon from './icons'
+import { cn } from '@/lib/helpers'
+import styles from './header.module.css'
 
 const getMenuButtonText = (isNorwegian, showNav) => {
   if (isNorwegian) {
     if (showNav) {
-      return 'Skjul meny';
+      return 'Skjul meny'
     }
-    return 'Hvis meny';
+    return 'Hvis meny'
   }
   if (showNav) {
-    return 'Hide menu';
+    return 'Hide menu'
   }
-  return 'Show menu';
-};
+  return 'Show menu'
+}
 
 const Header = ({
-  onHideNav,
-  onShowNav,
-  showNav,
-  siteTitle,
   locale = 'nb',
+  pages = [],
 }) => {
-  const pages = usePageData();
-  const linkLocale = locale === 'nb' || locale === 'nn' ? 'no' : locale;
-  const isNorwegian = locale === 'nb' || locale === 'nn';
-  const isEnglish = locale === 'en';
-  const to = isNorwegian ? '/' : '/en';
+  const [showNav, setShowNav] = useState(false)
+  
+  const linkLocale = locale === 'nb' || locale === 'nn' ? 'no' : locale
+  const isNorwegian = locale === 'nb' || locale === 'nn'
+  const isEnglish = locale === 'en'
+  const to = isNorwegian ? '/' : '/en/'
+  
   return (
     <div className={styles.root}>
       <div className={styles.wrapper}>
-        <Heading>{siteTitle}</Heading>
-        <Logo>
-          <Link to={to}>
-            <LogoImg alt={`${siteTitle} logo`} src={logo} />
+        <h1 className={styles.branding}>
+          <Link href={to} className={styles.logo}>
+            <img alt="Kystleik logo" src={logo.src} className={styles.logoImg} />
           </Link>
-        </Logo>
+        </h1>
         <button
           className={styles.toggleNavButton}
-          onClick={showNav ? onHideNav : onShowNav}
+          onClick={() => setShowNav(!showNav)}
           aria-label={getMenuButtonText(isNorwegian, showNav)}
         >
           <Icon symbol="hamburger" />
@@ -65,40 +49,40 @@ const Header = ({
 
         <nav className={cn(styles.nav, showNav && styles.showNav)}>
           <ul>
-            {pages.map(({ node: { title, id, slug } }) => {
+            {pages.map((page) => {
               return (
-                <li key={id}>
-                  <Link to={`/${linkLocale}/${slug[locale].current}`}>
-                    {title[locale]}
+                <li key={page._id}>
+                  <Link href={`/${linkLocale}/${page.slug[locale]?.current || ''}`}>
+                    {page.title[locale]}
                   </Link>
                 </li>
-              );
+              )
             })}
             {isNorwegian && (
               <li>
-                <Link to="/no/kurs-og-aktiviteter">Kurs og aktiviteter</Link>
+                <Link href="/no/kurs-og-aktiviteter/">Kurs og aktiviteter</Link>
               </li>
             )}
             {isEnglish && (
               <li>
-                <Link to="/en/courses-and-tours">Courses and tours</Link>
+                <Link href="/en/courses-and-tours/">Courses and tours</Link>
               </li>
             )}
             {isNorwegian && (
               <li>
-                <Link to="/en">English</Link>
+                <Link href="/en/">English</Link>
               </li>
             )}
             {isEnglish && (
               <li>
-                <Link to="/">Norwegian</Link>
+                <Link href="/">Norwegian</Link>
               </li>
             )}
           </ul>
         </nav>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

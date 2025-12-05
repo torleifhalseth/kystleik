@@ -1,7 +1,7 @@
 import { getSiteSettings, getAllTours } from '@/lib/sanity'
 import { imageUrlFor } from '@/lib/sanity'
 import Container from '@/components/container'
-import Hero from '@/components/Hero-new'
+import Hero from '@/components/Hero'
 import ProjectPreviewGrid from '@/components/project-preview-grid'
 import RichResult from '@/components/RichResult'
 

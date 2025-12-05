@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  // Enable for static site generation - requires Sanity to be accessible for data fetching
+  // output: 'export',
   images: {
     unoptimized: true,
   },

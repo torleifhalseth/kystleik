@@ -1,6 +1,8 @@
+'use client'
+
 import React, { useState } from 'react'
-import { buildImageObj } from '../../lib/helpers'
-import { imageUrlFor } from '../../lib/image-url'
+import { buildImageObj } from '@/lib/helpers'
+import { imageUrlFor } from '@/lib/sanity'
 
 import styles from './slideshow.module.css'
 
