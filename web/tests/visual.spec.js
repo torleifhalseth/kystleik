@@ -17,8 +17,8 @@ test.describe('Homepage - Norwegian', () => {
   test('should display navigation menu', async ({ page }) => {
     await page.goto('/no/');
     
-    // Check for menu button - use more specific selector
-    const menuButton = page.locator('button.header-module__TUZVha__toggleNavButton');
+    // Check for menu button - use aria-label selector
+    const menuButton = page.locator('button[aria-label*="meny"]');
     await expect(menuButton).toBeVisible();
     
     // Take screenshot
@@ -91,8 +91,8 @@ test.describe('Responsive Design', () => {
     await page.setViewportSize({ width: 375, height: 667 });
     await page.goto('/no/');
     
-    // Menu button should be visible on mobile
-    const menuButton = page.locator('button.header-module__TUZVha__toggleNavButton');
+    // Menu button should be visible on mobile - use aria-label selector
+    const menuButton = page.locator('button[aria-label*="meny"]');
     await expect(menuButton).toBeVisible();
     
     // Take screenshot
@@ -139,7 +139,7 @@ test.describe('Language Switching', () => {
     // Click Norwegian link
     await page.click('a:has-text("Norwegian")');
     
-    await expect(page).toHaveURL(/.*\/\//);
+    await expect(page).toHaveURL(/.*\/no\//);
     
     // Take screenshot
     await page.screenshot({ path: 'tests/screenshots/language-switch-no.png' });
