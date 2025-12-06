@@ -6,7 +6,7 @@
   padding: 1.5em;
   margin: 0 auto;
 
-  @media (--media-min-small) {
+  @media (min-width: 450px) {
     padding: 2em;
   }
 }

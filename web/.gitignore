@@ -53,10 +53,17 @@ typings/
 
 # dotenv environment variables file
 .env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-# gatsby files
+# gatsby files (legacy)
 .cache/
-public
+
+# Next.js
+.next/
+out/
 
 # Mac files
 .DS_Store
@@ -68,3 +75,11 @@ yarn.lock
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+
+# Vercel
+.vercel
+
+# Playwright
+test-results/
+playwright-report/
+playwright/.cache/

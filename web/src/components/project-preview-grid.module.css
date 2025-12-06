@@ -25,11 +25,11 @@
   grid-column-gap: 2rem;
   grid-row-gap: 2rem;
 
-  @media (--media-min-small) {
+  @media (min-width: 450px) {
     grid-template-columns: 1fr 1fr;
   }
 
-  @media (--media-min-medium) {
+  @media (min-width: 675px) {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }

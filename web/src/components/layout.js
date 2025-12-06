@@ -1,37 +1,17 @@
-import React from 'react';
-import styled from 'styled-components';
-import Header from './header';
-import '../styles/layout.css';
-import styles from './layout.module.css';
-
-const SocialMediaList = styled.ul`
-  text-align: center;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-
-  li {
-    display: inline-block;
-    margin-right: 20px;
-  }
-`;
+import React from 'react'
+import Header from './header'
+import styles from './layout.module.css'
 
 const Layout = ({
   children,
   companyInfo,
-  onHideNav,
-  onShowNav,
-  showNav,
-  siteTitle,
   locale,
+  pages = [],
 }) => (
   <>
     <Header
-      siteTitle={siteTitle}
-      onHideNav={onHideNav}
-      onShowNav={onShowNav}
-      showNav={showNav}
       locale={locale}
+      pages={pages}
     />
     <div className={styles.content}>{children}</div>
     <footer className={styles.footer}>
@@ -54,7 +34,7 @@ const Layout = ({
             </div>
           )}
         </div>
-        <SocialMediaList>
+        <ul className={styles.socialMediaList}>
           <li>
             <a
               href="https://www.facebook.com/Kystleik"
@@ -73,10 +53,10 @@ const Layout = ({
               Instagram
             </a>
           </li>
-        </SocialMediaList>
+        </ul>
       </div>
     </footer>
   </>
-);
+)
 
-export default Layout;
+export default Layout

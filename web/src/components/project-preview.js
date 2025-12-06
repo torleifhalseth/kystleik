@@ -1,13 +1,13 @@
-import { Link } from 'gatsby';
-import React from 'react';
-import { buildImageObj } from '../lib/helpers';
-import { imageUrlFor } from '../lib/image-url';
-import BlockText from './block-text';
-import styles from './project-preview.module.css';
+import Link from 'next/link'
+import React from 'react'
+import { buildImageObj } from '@/lib/helpers'
+import { imageUrlFor } from '@/lib/sanity'
+import BlockText from './block-text'
+import styles from './project-preview.module.css'
 
 function ProjectPreview({ slug, mainImage, title, _rawExcerpt, locale }) {
   return (
-    <Link className={styles.root} to={slug}>
+    <Link className={styles.root} href={slug}>
       <div className={styles.leadMediaThumb}>
         {mainImage && mainImage.asset && (
           <img
@@ -26,7 +26,7 @@ function ProjectPreview({ slug, mainImage, title, _rawExcerpt, locale }) {
         </div>
       )}
     </Link>
-  );
+  )
 }
 
-export default ProjectPreview;
+export default ProjectPreview

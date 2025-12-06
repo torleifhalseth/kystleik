@@ -28,7 +28,7 @@
   grid-template-columns: 1fr;
   grid-column-gap: 2em;
 
-  @media (--media-min-medium) {
+  @media (min-width: 675px) {
     grid-template-columns: 3fr 1fr;
   }
 }
