@@ -4,7 +4,7 @@ This is a monorepo managed with pnpm containing the Kystleik website and Sanity 
 
 ## Structure
 
-- **web/**: Next.js 15 website with App Router
+- **web/**: Next.js 16 website with App Router
 - **studio/**: Sanity Studio CMS
 
 ## Prerequisites
@@ -46,6 +46,15 @@ Build the Next.js website:
 pnpm build
 ```
 
+### Testing
+
+Run visual tests with Playwright:
+
+```bash
+cd web
+pnpm test
+```
+
 ### Other Commands
 
 ```bash
@@ -79,6 +88,7 @@ pnpm --filter studio <command>
 ## Tech Stack
 
 - **Package Manager**: pnpm (workspaces)
-- **Frontend**: Next.js 15 with App Router
-- **CMS**: Sanity.io
+- **Frontend**: Next.js 16 with App Router (Turbopack)
+- **CMS**: Sanity.io with GROQ queries
 - **Styling**: CSS Modules + Tailwind CSS
+- **Testing**: Playwright for visual regression

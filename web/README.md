@@ -1,14 +1,15 @@
 # Kystleik Website - Next.js Migration
 
-This website has been migrated from Gatsby to Next.js 15 with App Router.
+This website has been migrated from Gatsby to Next.js 16 with App Router.
 
 ## Tech Stack
 
-- **Framework**: Next.js 15 with App Router
+- **Framework**: Next.js 16 with App Router (Turbopack)
 - **Styling**: CSS Modules + Tailwind CSS
-- **CMS**: Sanity.io
+- **CMS**: Sanity.io with GROQ queries
 - **Content Rendering**: Portable Text (@portabletext/react)
 - **Package Manager**: pnpm (monorepo)
+- **Testing**: Playwright for visual regression testing
 
 ## Getting Started
 
@@ -60,6 +61,19 @@ From the root directory:
 ```bash
 pnpm build
 ```
+
+### Testing
+
+Run Playwright visual tests:
+
+```bash
+cd web
+pnpm test              # Run all tests
+pnpm test:ui           # Run with UI mode
+pnpm test:headed       # Run in headed mode
+```
+
+Screenshots are saved to `web/tests/screenshots/`.
 
 ### Static Export
 
