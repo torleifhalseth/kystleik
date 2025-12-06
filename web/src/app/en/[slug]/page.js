@@ -1,45 +1,49 @@
-import Container from '@/components/container'
-import Hero from '@/components/Hero'
-import BlockContent from '@/components/block-content'
-import { getPageBySlug, getAllPages, imageUrlFor } from '@/lib/sanity'
-import { notFound } from 'next/navigation'
+import Container from '@/components/container';
+import Hero from '@/components/Hero';
+import BlockContent from '@/components/block-content';
+import { getPageBySlug, getAllPages, imageUrlFor } from '@/lib/sanity';
+import { notFound } from 'next/navigation';
 
-export const dynamic = 'force-static'
-export const dynamicParams = true
+export const dynamic = 'force-static';
+export const dynamicParams = true;
 
 export async function generateStaticParams() {
-  const pages = await getAllPages()
-  
+  const pages = await getAllPages();
+
   return pages
-    .filter(page => page.slug?.en?.current && page.slug.en.current !== 'index')
+    .filter(
+      (page) => page.slug?.en?.current && page.slug.en.current !== 'index',
+    )
     .map((page) => ({
       slug: page.slug.en.current,
-    }))
+    }));
 }
 
 export async function generateMetadata({ params }) {
-  const page = await getPageBySlug(params.slug, 'en')
-  
+  const { slug } = await params;
+  const page = await getPageBySlug(slug, 'en');
+
   if (!page) {
-    return {}
+    return {};
   }
-  
+
   return {
     title: `${page.title?.en || ''} - Kystleik`,
     description: page.description?.en,
-  }
+  };
 }
 
 export default async function Page({ params }) {
-  const page = await getPageBySlug(params.slug, 'en')
-  
+  const { slug } = await params;
+  const page = await getPageBySlug(slug, 'en');
+
   if (!page) {
-    notFound()
+    notFound();
   }
-  
-  const locale = 'en'
-  const body = page.body?.[locale]
-  
+
+  const locale = 'en';
+  const body = page.body?.[locale];
+
   return (
     <>
       {page.mainImage && (
@@ -53,5 +57,5 @@ export default async function Page({ params }) {
         {body && <BlockContent blocks={body} />}
       </Container>
     </>
-  )
+  );
 }

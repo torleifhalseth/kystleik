@@ -1,5 +1,5 @@
-import { createClient } from '@sanity/client'
-import imageUrlBuilder from '@sanity/image-url'
+import { createClient } from '@sanity/client';
+import imageUrlBuilder from '@sanity/image-url';
 
 // Sanity configuration
 const sanityConfig = {
@@ -7,7 +7,7 @@ const sanityConfig = {
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
   apiVersion: '2024-01-01',
   useCdn: true,
-}
+};
 
 export const client = createClient({
   projectId: sanityConfig.projectId,
@@ -15,13 +15,13 @@ export const client = createClient({
   apiVersion: sanityConfig.apiVersion,
   useCdn: sanityConfig.useCdn,
   token: process.env.SANITY_TOKEN,
-})
+});
 
 // Image URL builder
-const builder = imageUrlBuilder(client)
+const builder = imageUrlBuilder(client);
 
 export function imageUrlFor(source) {
-  return builder.image(source)
+  return builder.image(source);
 }
 
 // GROQ Query Fragments (reusable)
@@ -30,20 +30,20 @@ const IMAGE_FRAGMENT = `
   crop,
   hotspot,
   alt
-`
+`;
 
 const SLUG_FRAGMENT = `
   nb { current },
   en { current }
-`
+`;
 
 // Generic query wrapper with error handling
 async function fetchWithFallback(query, params = {}, fallback = null) {
   try {
-    return await client.fetch(query, params)
+    return await client.fetch(query, params);
   } catch (error) {
-    console.warn(`Failed to fetch data: ${error.message}`)
-    return fallback
+    console.warn(`Failed to fetch data: ${error.message}`);
+    return fallback;
   }
 }
 
@@ -56,13 +56,18 @@ export async function getSiteSettings() {
     },
     description,
     keywords
-  }`
-  
-  return fetchWithFallback(query, {}, {
-    title: 'Kystleik',
-    description: 'Med havet som næraste nabo har vi verdas største og beste leikeplass',
-    keywords: []
-  })
+  }`;
+
+  return fetchWithFallback(
+    query,
+    {},
+    {
+      title: 'Kystleik',
+      description:
+        'Med havet som næraste nabo har vi verdas største og beste leikeplass',
+      keywords: [],
+    },
+  );
 }
 
 export async function getCompanyInfo() {
@@ -73,15 +78,19 @@ export async function getCompanyInfo() {
     zipCode,
     city,
     country
-  }`
-  
-  return fetchWithFallback(query, {}, {
-    name: 'Kystleik',
-    address1: 'Vodlavegen 2',
-    zipCode: '5381',
-    city: 'Glesvær',
-    country: 'Norge'
-  })
+  }`;
+
+  return fetchWithFallback(
+    query,
+    {},
+    {
+      name: 'Kystleik',
+      address1: 'Vodlavegen 2',
+      zipCode: '5381',
+      city: 'Glesvær',
+      country: 'Norge',
+    },
+  );
 }
 
 export async function getAllPages() {
@@ -91,9 +100,9 @@ export async function getAllPages() {
     slug {
       ${SLUG_FRAGMENT}
     }
-  }`
-  
-  return fetchWithFallback(query, {}, [])
+  }`;
+
+  return fetchWithFallback(query, {}, []);
 }
 
 export async function getPageBySlug(slug, locale = 'nb') {
@@ -105,9 +114,9 @@ export async function getPageBySlug(slug, locale = 'nb') {
       ${IMAGE_FRAGMENT}
     },
     body
-  }`
-  
-  return fetchWithFallback(query, { slug }, null)
+  }`;
+
+  return fetchWithFallback(query, { slug }, null);
 }
 
 export async function getAllTours() {
@@ -120,9 +129,9 @@ export async function getAllTours() {
     slug {
       ${SLUG_FRAGMENT}
     }
-  }`
-  
-  return fetchWithFallback(query, {}, [])
+  }`;
+
+  return fetchWithFallback(query, {}, []);
 }
 
 export async function getTourBySlug(slug, locale = 'nb') {
@@ -137,7 +146,7 @@ export async function getTourBySlug(slug, locale = 'nb') {
     slug {
       ${SLUG_FRAGMENT}
     }
-  }`
-  
-  return fetchWithFallback(query, { slug }, null)
+  }`;
+
+  return fetchWithFallback(query, { slug }, null);
 }
